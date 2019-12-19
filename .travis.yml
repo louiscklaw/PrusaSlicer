@@ -8,12 +8,11 @@ install:
   - 'sudo apt-get install -y libgl1-mesa-dev mesa-common-dev libglu1-mesa-dev freeglut3-dev libglfw3-dev libgles2-mesa-dev'
   - 'sudo apt-get install -y gtk2.0 build-essential libgtk2.0-dev'
   - 'sudo apt-get install -y libgtk-3-0 libgtk-3-common libgtk2.0-common'
-
+  - 'apt list --installed'
 
 script:
-  - 'apt list --installed'
   - 'cd deps'
-  - 'mkdir build'
+  - 'mkdir -p build'
   - 'cd build'
-  - 'cmake .. -G Ninja -DSLIC3R_WX_STABLE=1 -DSLIC3R_STATIC=1 -DCMAKE_PREFIX_PATH="$PWD/../deps/build/destdir/usr/local"'
+  - 'cmake -G Ninja ..'
   - 'ninja -j 1 -v'
