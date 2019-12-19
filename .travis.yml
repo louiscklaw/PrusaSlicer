@@ -7,4 +7,8 @@ install:
   - 'sudo apt-get -y install make cmake ninja-build'
 
 script:
-  - 'sh build.sh'
+  - 'cd deps'
+  - 'mkdir build'
+  - 'cd build'
+  - 'cmake -G Ninja ..'
+  - 'ninja'
