@@ -4,7 +4,7 @@ sudo: false
 language: generic
 
 install:
-  - 'sudo apt-get -y install cmake ninja-build'
+  - 'sudo apt-get -y install make cmake ninja-build'
 
 script:
   - 'sh build.sh'
