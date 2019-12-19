@@ -1,7 +1,7 @@
-dist: bionic
-sudo: false
-
 language: generic
+dist: trusty
+
+
 
 install:
   - 'sudo apt-get -y install make cmake ninja-build'
