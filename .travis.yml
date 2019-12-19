@@ -14,5 +14,5 @@ script:
   - 'cd deps'
   - 'mkdir build'
   - 'cd build'
-  - 'cmake .. -G Ninja -DSLIC3R_STATIC=1 -DCMAKE_PREFIX_PATH="$PWD/../deps/build/destdir/usr/local"'
+  - 'cmake .. -G Ninja -DSLIC3R_WX_STABLE=1 -DSLIC3R_STATIC=1 -DCMAKE_PREFIX_PATH="$PWD/../deps/build/destdir/usr/local"'
   - 'ninja -j 1 -v'
