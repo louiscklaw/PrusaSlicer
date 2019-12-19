@@ -10,6 +10,7 @@ install:
 
 
 script:
+  - 'apt list --installed'
   - 'cd deps'
   - 'mkdir build'
   - 'cd build'
