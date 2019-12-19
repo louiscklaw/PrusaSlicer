@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-sudo apt-get -y install cmake libboost-all-dev libcurl4-openssl-dev libnlopt-dev libwxgtk3.0-dev libcereal-dev libtbb-dev libudev-dev
+sudo apt-get -y install cmake libboost-all-dev libcurl4-openssl-dev libnlopt-dev libwxgtk3.0-dev libcereal-dev libtbb-dev libudev-dev ninja-build
 
 rm -rf build
 rm -rf CMakeFiles
