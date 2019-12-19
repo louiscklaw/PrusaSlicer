@@ -5,7 +5,7 @@ language: generic
 
 install:
   - 'sudo apt-get -y install make cmake ninja-build'
-  - 'sudo apt-get install -y libgl1-mesa-dev'
+  - 'sudo apt-get install -y libgl1-mesa-dev mesa-common-dev'
 
 script:
   - 'cd deps'
