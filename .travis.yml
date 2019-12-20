@@ -1,7 +1,12 @@
 dist: bionic
 
-script:
-  - sh build_all.sh
+jobs:
+  include:
+    - stage: build deps
+      script: sh build_deps.sh
+    - stage: build main
+      script: sh build_main.sh
+
 
 notifications:
   slack:
