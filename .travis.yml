@@ -2,6 +2,8 @@ dist: bionic
 
 jobs:
   include:
+    - stage: install packages
+      script: sh scripts/ubuntu_apt_get.sh
     - stage: build deps
       script: sh build_make.sh
 
