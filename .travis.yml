@@ -3,9 +3,7 @@ dist: bionic
 jobs:
   include:
     - stage: build deps
-      script: sh build_make_deps.sh
-    - stage: build main
-      script: sh build_make_main.sh
+      script: sh build_make.sh
 
 
 notifications:
