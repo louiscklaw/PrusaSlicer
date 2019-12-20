@@ -11,29 +11,8 @@ echo '--- list installed packages ---'
 apt list --installed
 echo '--- list installed packages done ---'
 
-# rm -rf deps/build
-# rm -rf build
-
-echo '--- build start ---'
-cd deps
-mkdir -p build
-cd build
-cmake ..
-make help
-make clean
-make -j2
-cd ../..
-pwd
-
-echo '--- building deps done ---'
-
-mkdir build
-cd build
-cmake .. -DSLIC3R_WX_STABLE=1 -DSLIC3R_STATIC=1  -DCMAKE_PREFIX_PATH="$PWD/../deps/build/destdir/usr/local"
-make clean
-make -j2
-echo '--- build done ---'
-cd ..
+sh ./build_make_deps.sh
+sh ./build_make_main.sh
 
 pipenv run python3 travis-broadcast.py \#travis-build-result "prusaslicer build done"
 
