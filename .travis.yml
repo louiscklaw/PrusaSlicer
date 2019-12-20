@@ -1,7 +1,7 @@
 dist: bionic
 
 script:
-  - hostname
+  - sh build_all.sh
 
 notifications:
   slack:

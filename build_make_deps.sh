@@ -7,21 +7,22 @@ cd deps
 mkdir -p build
 cd build
 cmake ..
-make clean
 
-make -j2 dep_libopenssl
-make -j2 dep_wxwidgets
-make -j2 dep_gtest
-make -j2 dep_tbb
-make -j2 dep_boost
-make -j2 dep_cereal
-make -j2 dep_nlopt
-make -j2 dep_libcurl
-make -j2 dep_qhull
-make -j2 dep_libigl
+make dep_libopenssl &
+make dep_wxwidgets &
+make dep_gtest &
+make dep_tbb &
+make dep_boost &
+make dep_cereal &
+make dep_nlopt &
+make dep_libcurl &
+make dep_qhull &
+make dep_libigl
+
+wait
 
 echo '--- make the remaining if any ---'
-make -j2 all
+make all
 
 pwd
 cd ../..
