@@ -11,8 +11,8 @@ echo '--- list installed packages ---'
 apt list --installed
 echo '--- list installed packages done ---'
 
-sh ./build_make_deps.sh
-sh ./build_make_main.sh
+sh ./build_make_deps.sh | tee build_make_deps.log
+sh ./build_make_main.sh | tee build_make_main.log
 
 pipenv run python3 travis-broadcast.py \#travis-build-result "prusaslicer build done"
 
