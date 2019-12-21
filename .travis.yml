@@ -4,7 +4,6 @@ jobs:
   include:
     - stage: build deps
       script:
-        - "sh scripts/ubuntu_apt_get.sh"
         - "travis_wait 60 sh build_make_all.sh"
 
 
