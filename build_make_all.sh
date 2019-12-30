@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+bash scripts/ubuntu_apt_get.sh
+
 rm -rf deps/build
 rm -rf build
 
