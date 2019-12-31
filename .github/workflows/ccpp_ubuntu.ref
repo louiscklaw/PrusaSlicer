@@ -1,6 +1,9 @@
 name: C/C++ CI ubuntu
 
-on: [push]
+on:
+  push:
+    branches:
+      - CI
 
 jobs:
   build:
@@ -22,6 +25,7 @@ jobs:
       working-directory: ./deps/build
       run: make
 
+      
     - name: mkdir build
       run: mkdir build
     - name: cmake
@@ -35,3 +39,17 @@ jobs:
       run: |
         mkdir package
         mkdir package/bin
+    - name: copy resources
+      working-directory: ./build
+      run: cp -Rf ../resources package/resources
+    - name: copy bin
+      working-directory: ./build
+      run: cp -f src/slic3r++ package/bin/slic3r++
+    - name: create sh from echo
+      working-directory: ./build/package
+      run: echo -e '#!/bin/bash\nDIR=$(readlink -f "$0" | xargs dirname)\nexport LD_LIBRARY_PATH="$DIR/bin"\nexec "$DIR/bin/slic3r++" "$@"' >slic3r++
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: nightly_linux
+        path: build/package/
