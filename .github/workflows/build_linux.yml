@@ -1,6 +1,9 @@
-name: CI
+name: C/C++ CI ubuntu
 
-on: [push]
+on:
+  push:
+    branches:
+      - CI
 
 jobs:
   build:
@@ -9,9 +12,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: change date in version
+      run: sed -i "s/+UNKNOWN/_$(date '+%F')/" version.inc
+    - name: install gtk2 glew
+      run: sudo apt-get install libgtk2.0-dev libglew-dev libudev-dev
+    - name: mkdir in deps
+      run: mkdir deps/build
+    - name: cmake deps
+      working-directory: ./deps/build
+      run: cmake ..
+    - name: make deps
+      working-directory: ./deps/build
+      run: make
